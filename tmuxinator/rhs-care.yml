@@ -1,0 +1,15 @@
+# ~/.tmuxinator/rhs-care.yml
+
+name: rhs-care
+root: ~/Workspace/RemoteHealthServices/care_web
+pre_window: nvm use
+windows:
+  - pubsub:
+    - cd ~/Workspace/RemoteHealthServices/rhs_pub_sub
+    - nvm use
+    - grunt server
+  - server:
+    - sleep 3
+    - grunt server
+  - editor: vim
+  - shell:

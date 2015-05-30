@@ -1,0 +1,6 @@
+# ~/.tmuxinator/rhs-ios.yml
+
+name: rhs-ios
+root: ~/Workspace/RemoteHealthServices/ios_client
+windows:
+  - shell:

@@ -1,0 +1,6 @@
+# ~/.tmuxinator/rhs-android.yml
+
+name: rhs-android
+root: ~/Workspace/RemoteHealthServices/android
+windows:
+  - shell:

@@ -1,0 +1,15 @@
+# ~/.tmuxinator/rhs-rails.yml
+
+name: rhs-rails
+root: ~/Workspace/RemoteHealthServices/RHSMocker
+
+windows:
+  - zeus: zeus start
+  - server:
+    - sleep 3
+    - zeus server
+  - console:
+    - sleep 3
+    - zeus console
+  - editor: vim
+  - shell:
