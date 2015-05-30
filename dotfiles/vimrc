@@ -69,8 +69,14 @@ let g:gist_post_private = 1
 " rspec
 let g:rspec_command = "!zeus rspec {spec}"
 
+" don't move on split
+nnoremap <C-w>s Hmx`` \|:split<cr>`xzt``
+nnoremap <C-w>v Hmx`` \|:vsplit<cr>`xzt``
+
 let mapleader = "\<Space>"
 nmap <leader>w <C-w><C-w>
+nmap <leader>v <C-w>v<C-w>l
+nmap <leader>s <C-w>s<C-w>j
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>t :TagbarToggle<cr>
 nmap <leader>gs :Gstatus<cr>
