@@ -1,0 +1,31 @@
+[user]
+	name = Kyle Chilcutt
+	email = kyle@chilcutt.com
+[color]
+	ui = true
+[push]
+	default = tracking
+[core]
+	whitespace = space-before-tab,trailing-space
+	editor = vim
+	pager = less -r
+	excludesfile = /Users/kyle/.gitignore
+[grep]
+	lineNumber = true
+[alias]
+	cp = cherry-pick
+	st = status -s
+	co = checkout
+	br = branch
+	cdiff = diff --word-diff=color
+	graph = log --oneline --graph --decorate
+	ls = log --graph --date=short --format='%C(yellow)%h %C(cyan)%ad %C(reset)%s %C(blue)[%aN]%C(reset)'
+	ll = log --graph --date=short --format='%C(yellow)%h %C(cyan)%ad %C(reset)%s %C(blue)[%aN]%C(reset)' --numstat
+	la = log --graph --all --date=short --format='%C(yellow)%h %C(cyan)%ad%C(green bold)%d %C(reset)%s %C(blue)[%aN]%C(reset)'
+	find = !git ls-files | grep -i
+	fgrep = grep --heading --break --ignore-case
+	sub = submodule update --init --recursive
+[help]
+	autocorrect = 1
+[github]
+	user = chilcutt
