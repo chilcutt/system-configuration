@@ -1,0 +1,84 @@
+set nocompatible
+filetype off
+
+" Load Vundle and plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mtth/scratch.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'ZoomWin'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+call vundle#end()
+
+syntax enable
+set background=dark
+set number
+set nowrap
+set hlsearch
+set ignorecase
+set smartcase
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set listchars=tab:>.,trail:.,extends:>,precedes:<
+
+highlight Visual term=reverse cterm=reverse guibg=LightGrey
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" ctrlp
+let g:ctrlp_use_caching = 0
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = { 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'] }
+endif
+
+" gist
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" rspec
+let g:rspec_command = "!zeus rspec {spec}"
+
+let mapleader = "\<Space>"
+nmap <leader>w <C-w><C-w>
+nmap <leader>n :NERDTreeToggle<cr>
+nmap <leader>t :TagbarToggle<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>a :A<cr>
+nmap <leader>rf :call RunCurrentSpecFile()<cr>
+nmap <leader>rs :call RunNearestSpec()<cr>
+nmap <leader>rl :call RunLastSpec()<cr>
+nmap <leader>ra :call RunAllSpecs()<cr>
+nmap <leader>gn :Gist<cr>
+nmap <leader>gl :Gist -l<cr>
