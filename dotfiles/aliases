@@ -1,0 +1,32 @@
+cdl()
+{
+	if [ -n "$1" ]; then
+		builtin cd "$@" && ls
+	else
+		builtin cd $HOME && ls
+	fi
+}
+
+alias cd='cdl'
+alias vi='vim'
+alias ls='ls -G'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -h'
+alias du='du -hc'
+alias utc='date -u +"%Y-%m-%dT%H%MZ"'
+alias l='ls -l'
+alias la='ls -A'
+alias ll='ls -alF'
+alias llh='ls -alFh'
+alias lls='ls -alFSr'
+alias llsh='ls -alFhSr'
+alias gti='git'
+alias gits='git'
+alias z='zeus'
+alias zr='zeus rspec'
+alias zpr='zeus parallel_rspec'
+[ -n `which gem` ] && alias remove_all_gems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
+[ -n `which pkill` ] && alias logout_user='pkill -KILL -u'
+alias npm-exec='PATH=$(npm bin):$PATH'

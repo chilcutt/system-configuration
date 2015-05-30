@@ -1,0 +1,41 @@
+[ -z "$PS1" ] && return
+
+if [ -f /opt/lib/git-prompt.sh ]; then
+	. /opt/lib/git-prompt.sh
+	GIT_PS1_SHOWCOLORHINTS=true
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWCOLORHINTS=true
+	GIT_PS1_DESCRIBE_STYLE="branch"
+	GIT_PS1_SHOWUPSTREAM="auto git"
+	PROMPT_COMMAND='__git_ps1 "\[\e]0;\u@\h: \w\a\][\u@\h \W" "]\$ "'
+else
+	PS1='\[\e]0;\u@\h: \w\a\][\u@\h \W]\$ '
+fi
+
+export HISTCONTROL=ignoredups:ignorespace
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+export EDITOR=vim
+export VISUAL=vim
+export GIT_EDITOR=vim
+export SVN_EDITOR=vim
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+export INPUTRC=$HOME/.inputrc
+[ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh
+
+shopt -s histappend
+shopt -s checkwinsize
+
+export PATH=$PATH:$HOME/bin
+export PATH=/opt/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=$PATH:/opt/local/lib/percona/bin
+export PATH=$PATH:/opt/local/lib/mysql56/bin
+[ -e /usr/local/heroku ] && export PATH=$PATH:/usr/local/heroku/bin
+[ -e /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/activate.sh ] && source /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/activate.sh
+[ -s $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
+[ -e $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+[ -f /Users/kyle/.travis/travis.sh ] && source /Users/kyle/.travis/travis.sh
+
+source $HOME/.aliases
+source $HOME/.work_aliases
