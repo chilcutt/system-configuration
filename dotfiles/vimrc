@@ -43,6 +43,19 @@ highlight Visual term=reverse cterm=reverse guibg=LightGrey
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
+" highlight all tabs in red
+autocmd ColorScheme * highlight AllTabs ctermbg=red guibg=red
+highlight AllTabs ctermbg=red guibg=red
+match AllTabs /\t/
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
