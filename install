@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+set -x
+
+target_dir=$HOME/.system-configuration
+git_source="git@github.com:chilcutt/system-configuration.git"
+
+if [ ! -d $target_dir ]; then
+  mkdir -p $target_dir
+  cd $target_dir
+  git clone $git_source .
+  $target_dir/script/install
+else
+  echo "~/.system-configuration already exists! clean up first!"
+fi
