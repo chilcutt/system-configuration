@@ -1,16 +1,16 @@
 [ -z "$PS1" ] && return
 
-if [ -f /opt/lib/git-prompt.sh ]; then
-	. /opt/lib/git-prompt.sh
-	GIT_PS1_SHOWCOLORHINTS=true
-	GIT_PS1_SHOWDIRTYSTATE=true
-	GIT_PS1_SHOWUNTRACKEDFILES=true
-	GIT_PS1_SHOWCOLORHINTS=true
-	GIT_PS1_DESCRIBE_STYLE="branch"
-	GIT_PS1_SHOWUPSTREAM="auto git"
-	PROMPT_COMMAND='__git_ps1 "\[\e]0;\u@\h: \w\a\][\u@\h \W" "]\$ "'
+if [ -f $HOME/bin/git-prompt.sh ]; then
+  source $HOME/bin/git-prompt.sh
+  GIT_PS1_SHOWCOLORHINTS=true
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_SHOWCOLORHINTS=true
+  GIT_PS1_DESCRIBE_STYLE="branch"
+  GIT_PS1_SHOWUPSTREAM="auto git"
+  PROMPT_COMMAND='__git_ps1 "\[\e]0;\u@\h: \w\a\][\u@\h \W" "]\$ "'
 else
-	PS1='\[\e]0;\u@\h: \w\a\][\u@\h \W]\$ '
+  PS1='\[\e]0;\u@\h: \w\a\][\u@\h \W]\$ '
 fi
 
 export HISTCONTROL=ignoredups:ignorespace
