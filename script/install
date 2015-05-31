@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
+script_dir=$(cd "$(dirname "$0")"; pwd)
+root_dir=$(cd $script_dir/..; pwd)
+export_date=$(date -u +"%Y-%m-%dT%H%MZ")
+files=$(ls $root_dir/dotfiles)
+backup_directory=$HOME/.dotfiles-$export_date
+
+mkdir $backup_directory
+for file in $files; do
+  if [[ -e $HOME/.$file || -h $HOME/.$file ]]; then
+    mv $HOME/.$file $backup_directory/$file
+  fi
+  ln -s $root_dir/dotfiles/$file $HOME/.$file
+done
+
+echo "All done!"
