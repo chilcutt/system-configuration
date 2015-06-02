@@ -88,7 +88,14 @@ nnoremap <C-w>s Hmx`` \|:split<cr>`xzt``
 nnoremap <C-w>v Hmx`` \|:vsplit<cr>`xzt``
 
 let mapleader = "\<Space>"
-nmap <leader>w <C-w><C-w>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>x :x<cr>
+nmap <leader><space> <C-w><C-w>
+nmap <leader>h <C-w>h
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>l <C-w>l
 nmap <leader>v <C-w>v<C-w>l
 nmap <leader>s <C-w>s<C-w>j
 nmap <leader>n :NERDTreeToggle<cr>
