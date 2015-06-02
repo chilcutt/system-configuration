@@ -24,6 +24,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
+Plugin 'digitaltoad/vim-jade'
 call vundle#end()
 
 syntax enable
