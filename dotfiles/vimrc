@@ -100,7 +100,7 @@ nmap <leader>v <C-w>v<C-w>l
 nmap <leader>s <C-w>s<C-w>j
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>t :TagbarToggle<cr>
-nmap <leader>ag :Ag<space>
+nmap <leader>f :Ag<space>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gb :Gblame<cr>
 nmap <leader>a :A<cr>
