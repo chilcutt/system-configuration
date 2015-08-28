@@ -25,6 +25,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-markdown'
 call vundle#end()
 
 syntax enable
@@ -98,7 +99,9 @@ nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
 nmap <leader>v <C-w>v<C-w>l
 nmap <leader>s <C-w>s<C-w>j
-nmap <leader>n :NERDTreeToggle<cr>
+nmap <leader>d :NERDTreeToggle<cr>
+nmap <leader>n :n<cr>
+nmap <leader>N :N<cr>
 nmap <leader>t :TagbarToggle<cr>
 nmap <leader>f :Ag<space>
 nmap <leader>gs :Gstatus<cr>
