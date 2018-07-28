@@ -13,10 +13,7 @@
 [grep]
 	lineNumber = true
 [alias]
-	cp = cherry-pick
-	st = status -s
-	co = checkout
-	br = branch
+	s = status -sb # simple status
 	cdiff = diff --word-diff=color
 	graph = log --oneline --graph --decorate
 	ls = log --graph --date=short --format='%C(yellow)%h %C(cyan)%ad %C(reset)%s %C(blue)[%aN]%C(reset)'
@@ -25,7 +22,21 @@
 	find = !git ls-files | grep -i
 	fgrep = grep --heading --break --ignore-case
 	sub = submodule update --init --recursive
+  short = rev-parse --short
+  show-files = diff-tree --no-commit-id --name-only -r
+  pop = reset HEAD^
+  conflicts = diff --name-only --diff-filter=U # list files with conflicts
 [help]
 	autocorrect = 1
 [github]
 	user = chilcutt
+[gpg]
+  program = gpg2
+[commit]
+	gpgsign = true
+	verbose = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

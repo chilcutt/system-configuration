@@ -15,15 +15,19 @@ alias egrep='egrep --color=auto'
 alias utc='date -u +"%Y-%m-%dT%H%MZ"'
 alias z='zeus'
 alias zr='zeus rspec'
+alias zc='zeus cucumber'
 alias zpr='zeus parallel_rspec'
+alias zpc='zeus parallel_cucumber'
 alias psql_start='sudo -u postgres /opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb start'
 alias npm-exec='PATH=$(npm bin):$PATH'
 alias gti='git'
 alias gits='git'
-alias rails='mux rhs-rails'
-alias care='mux rhs-care'
-alias ios='mux rhs-ios'
-alias android='mux rhs-android'
+
+alias ut-orders='tmuxinator ut-orders'
 
 [ -n `which gem` ] && alias remove_all_gems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
 [ -n `which pkill` ] && alias logout_user='pkill -KILL -u'
+
+alias ut-production-tunnel="ssh -A -L localhost:4406:mysql-replica.orders-production.usertesting.com:3306 kchilcutt@54.215.203.160"
+alias ut-data-tunnel="ssh -L 5439:utwarehouse.coejfjaw6nm2.us-west-2.redshift.amazonaws.com:5439 kchilcutt@dw01.usertesting.com"
+alias mux=tmuxinator

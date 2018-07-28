@@ -1,5 +1,8 @@
 pairs:
   kc: Kyle Chilcutt
+  ut: Kyle Chilcutt; kchilcutt
 email:
   domain: chilcutt.com
   no_solo_prefix: true
+email_addresses:
+  ut: kchilcutt@usertesting.com

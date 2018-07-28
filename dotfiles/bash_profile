@@ -1,1 +1,14 @@
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
+
+##
+# Your previous /Users/kyle/.bash_profile file was backed up as /Users/kyle/.bash_profile.macports-saved_2016-11-26_at_22:03:42
+##
+
+# MacPorts Installer addition on 2016-11-26_at_22:03:42: adding an appropriate PATH variable for use with MacPorts.
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# MacPorts Installer addition on 2018-03-06_at_15:11:47: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

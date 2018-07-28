@@ -14,8 +14,9 @@ else
 fi
 
 export HISTCONTROL=ignoredups:ignorespace
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+# export HISTTIMEFORMAT="%d/%m/%y %T "
 export EDITOR=vim
 export VISUAL=vim
 export GIT_EDITOR=vim
@@ -30,12 +31,37 @@ shopt -s checkwinsize
 export PATH=/opt/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/opt/local/libexec/gnubin:$PATH
 export PATH=$PATH:/opt/local/lib/percona/bin
-export PATH=$PATH:/opt/local/lib/mysql56/bin
+export PATH=$PATH:/opt/local/lib/mysql57/bin
+export PATH=$PATH:/opt/local/lib/postgresql94/bin
+export PATH=$PATH:/opt/local/libexec/qt5/bin
+export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+export PATH=$PATH:/opt/local/libexec/yarn/bin
 [ -e /usr/local/heroku ] && export PATH=$PATH:/usr/local/heroku/bin
 [ -e /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/activate.sh ] && source /opt/local/Library/Frameworks/Python.framework/Versions/Current/bin/activate.sh
-[ -s $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
-[ -e $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+#[ -s $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
 [ -f /Users/kyle/.travis/travis.sh ] && source /Users/kyle/.travis/travis.sh
+#[ -e $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - --no-rehash)"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH" # yarn global binaries
+
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
+export PATH=$HOME/Workspace/bin:$PATH
 
 source $HOME/.aliases
 source $HOME/.work_aliases
+
+export DISABLE_SPRING=1
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fzf + ag configuration
+if command -v fzf > /dev/null && command -v ag > /dev/null; then
+  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
